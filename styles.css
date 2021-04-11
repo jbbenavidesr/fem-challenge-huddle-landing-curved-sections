@@ -8,6 +8,8 @@
     --clr-neutral-700: hsl(192, 100%, 9%);
     --clr-neutral-200: hsl(207, 100%, 98%);
 
+    --spacer: 1.25rem;
+
     /* Fonts */
     --ff-head: 'Poppins', sans-serif;
     --ff-body: 'Open Sans', sans-serif;
@@ -105,13 +107,89 @@ select {
 /*----- Typography -----*/
 body {
     font-family: var(--ff-body);
+    font-size: var(--fs-400);
 }
 
 h1,
 h2 {
     font-family: var(--ff-head);
+    font-weight: var(--fs-700);
+    font-size: var(--fs-700);
 }
 
+h2 {
+    font-size: var(--fs-600);
+}
+
+/*----- General Styles -----*/
+body {
+    color: var(--clr-neutral-700);
+}
+
+img {
+    display: inline-block;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+a {
+    display: inline-block;
+    color: inherit;
+}
+
+section {
+    padding-top: calc(5* var(--spacer));
+    padding-bottom: calc(5* var(--spacer));
+}
+
+/*----- Utilities -----*/
+.bg-neutral-700 {
+    background-color: var(--clr-neutral-700);
+    color: var(--clr-neutral-200);
+}
+
+.bg-neutral-200 {
+    background-color: var(--clr-neutral-200);
+    color: var(--clr-neutral-700);
+}
+
+.wrapper {
+    width: 90vw;
+    width: clamp(16rem, 90vw, 70rem);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    position: relative;
+}
+
+.flow > * + * {
+    margin-top: var(--flow-space, var(--spacer));
+}
+
+
+.flex {
+    display: flex;
+}
+
+.split {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: calc(3* var(--spacer))
+}
+
+.split > * {
+    flex-basis: 100%;
+}
+
+@media (min-width: 50em) {
+    .split {
+        flex-direction: row;
+    }
+}
+/*----- Blocks -----*/
 .attribution {
     font-size: var(--fs-200);
     text-align: center;
