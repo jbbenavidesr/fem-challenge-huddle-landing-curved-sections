@@ -309,13 +309,71 @@ section {
     color: var(--clr-neutral-700);
 }
 
-.curved .image{
+.descriptions .image{
     order: -1;
 }
 
+.curved {
+    position: relative;
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+}
+
+.curved::before, .curved::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 10rem;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.curved::before {
+    bottom: 100%;
+    background-position: bottom;
+}
+
+.curved::after {
+    top: 100%;
+    background-position: top;
+}
+
+.curved--1::before {
+    background-image: url(./images/bg-section-top-mobile-1.svg);
+}
+
+.curved--1::after {
+    background-image: url(./images/bg-section-bottom-mobile-1.svg);
+}
+
+.curved--2::before {
+    background-image: url(./images/bg-section-top-mobile-2.svg);
+}
+
+.curved--2::after {
+    background-image: url(./images/bg-section-bottom-mobile-2.svg);
+}
+
 @media (min-width:50em) {
-    .curved:nth-child(2n+1) .image {
+    .descriptions:nth-child(2n+1) .image {
         order: 2;
+    }
+
+    .curved--1::before {
+        background-image: url(./images/bg-section-top-desktop-1.svg);
+    }
+
+    .curved--1::after {
+        background-image: url(./images/bg-section-bottom-desktop-1.svg);
+    }
+
+    .curved--2::before {
+        background-image: url(./images/bg-section-top-desktop-2.svg);
+    }
+
+    .curved--2::after {
+        background-image: url(./images/bg-section-bottom-desktop-2.svg);
     }
 }
 
@@ -326,19 +384,34 @@ section {
 }
 
 .site-foot {
+    margin-top: 10rem;
     padding-bottom: var(--spacer);
-    
+    position: relative;
 
     --split-gap: calc(8*var(--spacer));
     --radius: calc(0.5 * var(--spacer))
 }
+
+.site-foot::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    width: 100%;
+    height: 10rem;
+    background-image: url(./images/bg-footer-top-mobile.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: bottom;
+}
+
 
 .site-foot .inner p {
     max-width: 35ch;
 }
 
 .site-foot .inner{
-    --foot-padding: calc(5*var(--spacer));
+    --foot-padding: calc(4*var(--spacer));
     padding-top: var(--foot-padding);
     padding-bottom: var(--foot-padding);
 }
@@ -391,6 +464,10 @@ section {
 }
 
 @media(min-width: 50em) {
+    .site-foot::before {
+        background-image: url(./images/bg-footer-top-desktop.svg);
+    }
+
     .site-foot .inner p {
         font-size: var(--fs-300);
     }
