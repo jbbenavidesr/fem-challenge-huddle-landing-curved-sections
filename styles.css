@@ -483,4 +483,8 @@ section {
     .subscribe input {
         max-width: 20ch;
     }
+
+    .site-foot .newsletter {
+        order: 2;
+    }
 }
